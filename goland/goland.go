@@ -49,7 +49,7 @@ const (
   </component>
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="format runAll $FilePathRelativeToProjectRoot$" />
+      <option name="arguments" value="format $FilePathRelativeToProjectRoot$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="" />
       <option name="exitCodeBehavior" value="ERROR" />
