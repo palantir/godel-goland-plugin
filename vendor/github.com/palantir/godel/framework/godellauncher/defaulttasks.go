@@ -16,12 +16,143 @@ package godellauncher
 
 import (
 	"strings"
+
+	"github.com/palantir/godel/framework/artifactresolver"
 )
 
 const defaultResolver = "https://palantir.bintray.com/releases/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
 
 var defaultPluginsConfig = PluginsConfig{
-	DefaultResolvers: []string{defaultResolver},
+	DefaultResolvers: []string{
+		defaultResolver,
+	},
+	Plugins: []SinglePluginConfig{
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.distgo:distgo-plugin:1.0.0-rc3",
+				},
+			},
+		},
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.godel-format-plugin:format-plugin:1.0.0-rc2",
+				},
+			},
+			Assets: []artifactresolver.LocatorWithResolverConfig{
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-format-asset-ptimports:ptimports-asset:1.0.0-rc3",
+					},
+				},
+			},
+		},
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.godel-goland-plugin:goland-plugin:1.0.0-rc1",
+				},
+			},
+		},
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.okgo:okgo-plugin:1.0.0-rc2",
+				},
+			},
+			Assets: []artifactresolver.LocatorWithResolverConfig{
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-compiles:compiles-asset:1.0.0-rc2",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-deadcode:deadcode-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-errcheck:errcheck-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-extimport:extimport-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-golint:golint-asset:1.0.0-rc2",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-govet:govet-asset:1.0.0-rc2",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-importalias:importalias-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-ineffassign:ineffassign-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-novendor:novendor-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-outparamcheck:outparamcheck-asset:1.0.0-rc1",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-unconvert:unconvert-asset:1.0.0-rc2",
+					},
+				},
+				{
+					Locator: artifactresolver.LocatorConfig{
+						ID: "com.palantir.godel-okgo-asset-varcheck:varcheck-asset:1.0.0-rc1",
+					},
+				},
+			},
+		},
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.go-license:license-plugin:1.0.0-rc2",
+				},
+			},
+		},
+		{
+			LocatorWithResolverConfig: artifactresolver.LocatorWithResolverConfig{
+				Locator: artifactresolver.LocatorConfig{
+					ID: "com.palantir.godel-test-plugin:test-plugin:1.0.0-rc3",
+				},
+			},
+		},
+	},
+}
+
+type TasksConfigInfo struct {
+	// BuiltinPluginsConfig is the configuration for built-in plugins that is built as part of gödel.
+	BuiltinPluginsConfig PluginsConfig
+	// TasksConfig is the fully resolved user-provided tasks configuration.
+	TasksConfig TasksConfig
+	// DefaultTasksPluginsConfig is the plugin configuration used to load the default tasks. It is a result of combining
+	// the BuiltinPluginsConfig with the DefaultTasks config of TasksConfig.
+	DefaultTasksPluginsConfig PluginsConfig
+}
+
+func BuiltinDefaultPluginsConfig() PluginsConfig {
+	return defaultPluginsConfig
 }
 
 func DefaultTasksPluginsConfig(config DefaultTasksConfig) PluginsConfig {
@@ -29,11 +160,13 @@ func DefaultTasksPluginsConfig(config DefaultTasksConfig) PluginsConfig {
 	pluginsCfg := PluginsConfig{
 		DefaultResolvers: defaultPluginsConfig.DefaultResolvers,
 	}
+	// append default resolvers provided by the configuration
+	pluginsCfg.DefaultResolvers = append(pluginsCfg.DefaultResolvers, config.DefaultResolvers...)
 
 	for _, currPlugin := range defaultPluginsConfig.Plugins {
 		currKey := locatorIDWithoutVersion(currPlugin.Locator.ID)
 
-		cfgParam, ok := config[currKey]
+		cfgParam, ok := config.Tasks[currKey]
 		if !ok {
 			// if custom configuration is not specified, use default and continue
 			pluginsCfg.Plugins = append(pluginsCfg.Plugins, currPlugin)
@@ -58,7 +191,7 @@ func DefaultTasksPluginsConfig(config DefaultTasksConfig) PluginsConfig {
 	return pluginsCfg
 }
 
-func assetConfigFromDefault(baseCfg []LocatorWithResolverConfig, cfg SingleDefaultTaskConfig) []LocatorWithResolverConfig {
+func assetConfigFromDefault(baseCfg []artifactresolver.LocatorWithResolverConfig, cfg SingleDefaultTaskConfig) []artifactresolver.LocatorWithResolverConfig {
 	if cfg.ExcludeAllDefaultAssets {
 		return nil
 	}
@@ -66,7 +199,7 @@ func assetConfigFromDefault(baseCfg []LocatorWithResolverConfig, cfg SingleDefau
 	for _, currExclude := range cfg.DefaultAssetsToExclude {
 		exclude[currExclude] = struct{}{}
 	}
-	var out []LocatorWithResolverConfig
+	var out []artifactresolver.LocatorWithResolverConfig
 	for _, asset := range baseCfg {
 		if _, ok := exclude[locatorIDWithoutVersion(asset.Locator.ID)]; ok {
 			continue
