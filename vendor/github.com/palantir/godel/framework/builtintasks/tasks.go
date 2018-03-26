@@ -18,16 +18,17 @@ import (
 	"github.com/palantir/godel/framework/godellauncher"
 )
 
-func Tasks(wrapperPath string) []godellauncher.Task {
+func Tasks(tasksCfgInfo godellauncher.TasksConfigInfo) []godellauncher.Task {
 	return []godellauncher.Task{
 		VersionTask(),
 		InstallTask(),
-		UpdateTask(wrapperPath),
-		InfoTask(wrapperPath),
+		UpdateTask(),
+		InfoTask(),
 		CheckPathTask(),
 		GitHooksTask(),
 		GitHubWikiTask(),
 		IDEATask(),
 		PackagesTask(),
+		TasksConfigTask(tasksCfgInfo),
 	}
 }
