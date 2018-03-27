@@ -12,24 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package builtintasks
+package cmd
 
 import (
-	"github.com/palantir/godel/framework/godel/config"
-	"github.com/palantir/godel/framework/godellauncher"
+	"github.com/palantir/godel/framework/pluginapi/v2/pluginapi"
+	"github.com/palantir/pkg/cobracli"
 )
 
-func Tasks(tasksCfgInfo config.TasksConfigInfo) []godellauncher.Task {
-	return []godellauncher.Task{
-		VersionTask(),
-		InstallTask(),
-		UpdateTask(),
-		InfoTask(),
-		CheckPathTask(),
-		GitHooksTask(),
-		GitHubWikiTask(),
-		IDEATask(),
-		PackagesTask(),
-		TasksConfigTask(tasksCfgInfo),
-	}
-}
+var PluginInfo = pluginapi.MustNewPluginInfo(
+	"com.palantir.godel-goland-plugin",
+	"goland-plugin",
+	cobracli.Version,
+	pluginapi.PluginInfoGlobalFlagOptions(
+		pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
+	),
+	pluginapi.PluginInfoTaskInfo(
+		"goland",
+		"GoLand project commands",
+	),
+)

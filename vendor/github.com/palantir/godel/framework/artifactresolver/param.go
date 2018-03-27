@@ -12,24 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package builtintasks
+package artifactresolver
 
 import (
-	"github.com/palantir/godel/framework/godel/config"
-	"github.com/palantir/godel/framework/godellauncher"
+	"fmt"
+
+	"github.com/palantir/godel/pkg/osarch"
 )
 
-func Tasks(tasksCfgInfo config.TasksConfigInfo) []godellauncher.Task {
-	return []godellauncher.Task{
-		VersionTask(),
-		InstallTask(),
-		UpdateTask(),
-		InfoTask(),
-		CheckPathTask(),
-		GitHooksTask(),
-		GitHubWikiTask(),
-		IDEATask(),
-		PackagesTask(),
-		TasksConfigTask(tasksCfgInfo),
-	}
+type LocatorWithResolverParam struct {
+	LocatorWithChecksums LocatorParam
+	Resolver             Resolver
+}
+
+type LocatorParam struct {
+	Locator
+	Checksums map[osarch.OSArch]string
+}
+
+type Locator struct {
+	Group   string
+	Product string
+	Version string
+}
+
+func (l Locator) String() string {
+	return fmt.Sprintf("%s:%s:%s", l.Group, l.Product, l.Version)
 }
