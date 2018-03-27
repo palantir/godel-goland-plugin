@@ -22,8 +22,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/palantir/godel"
-  packages = ["framework/artifactresolver","framework/builtintasks/installupdate/layout","framework/godel","framework/godellauncher","framework/internal/legacyplugins","framework/pluginapi","framework/verifyorder","godelgetter","pkg/osarch","pkg/versionedconfig"]
-  revision = "9bce7283535774180b05a94512b3808c88f24494"
+  packages = ["framework/artifactresolver","framework/builtintasks/installupdate/layout","framework/godel","framework/godellauncher","framework/pluginapi","framework/pluginapi/v2/pluginapi","framework/verifyorder","godelgetter","pkg/osarch"]
+  revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
 
 [[projects]]
   branch = "master"
@@ -61,15 +61,9 @@
   revision = "72b964305fba1230d3d818711138195f22b9ceea"
   version = "v1.0.22"
 
-[[projects]]
-  name = "gopkg.in/yaml.v2"
-  packages = ["."]
-  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
-  version = "v2.1.1"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "93f5c937c06c272101323a640bb1dd70003c21e8893c133f59b097f835d73a1b"
+  inputs-digest = "89aa1c7b2d7ff6c7794367370533f7a1fa78bfe09e64397b2b019c6a0e298d04"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -12,24 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package builtintasks
+package pluginapi
 
-import (
-	"github.com/palantir/godel/framework/godel/config"
-	"github.com/palantir/godel/framework/godellauncher"
-)
-
-func Tasks(tasksCfgInfo config.TasksConfigInfo) []godellauncher.Task {
-	return []godellauncher.Task{
-		VersionTask(),
-		InstallTask(),
-		UpdateTask(),
-		InfoTask(),
-		CheckPathTask(),
-		GitHooksTask(),
-		GitHubWikiTask(),
-		IDEATask(),
-		PackagesTask(),
-		TasksConfigTask(tasksCfgInfo),
-	}
+type SchemaVersion struct {
+	PluginSchemaVersionVar string `json:"pluginSchemaVersion"`
 }
