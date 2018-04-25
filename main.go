@@ -23,11 +23,9 @@ import (
 	"github.com/palantir/godel-goland-plugin/cmd"
 )
 
-var debugFlagVal bool
-
 func main() {
 	if ok := pluginapi.InfoCmd(os.Args, os.Stdout, cmd.PluginInfo); ok {
 		return
 	}
-	os.Exit(cobracli.ExecuteWithDefaultParamsWithVersion(cmd.RootCmd, &debugFlagVal, ""))
+	os.Exit(cobracli.ExecuteWithDefaultParams(cmd.RootCmd))
 }

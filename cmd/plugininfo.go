@@ -16,18 +16,20 @@ package cmd
 
 import (
 	"github.com/palantir/godel/framework/pluginapi/v2/pluginapi"
-	"github.com/palantir/pkg/cobracli"
 )
 
-var PluginInfo = pluginapi.MustNewPluginInfo(
-	"com.palantir.godel-goland-plugin",
-	"goland-plugin",
-	cobracli.Version,
-	pluginapi.PluginInfoGlobalFlagOptions(
-		pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
-	),
-	pluginapi.PluginInfoTaskInfo(
-		"goland",
-		"GoLand project commands",
-	),
+var (
+	Version    = "unspecified"
+	PluginInfo = pluginapi.MustNewPluginInfo(
+		"com.palantir.godel-goland-plugin",
+		"goland-plugin",
+		Version,
+		pluginapi.PluginInfoGlobalFlagOptions(
+			pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
+		),
+		pluginapi.PluginInfoTaskInfo(
+			"goland",
+			"GoLand project commands",
+		),
+	)
 )

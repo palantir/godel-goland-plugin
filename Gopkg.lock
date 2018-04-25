@@ -16,20 +16,37 @@
 [[projects]]
   branch = "develop"
   name = "github.com/nmiyake/pkg"
-  packages = ["dirs","errorstringer"]
+  packages = [
+    "dirs",
+    "errorstringer"
+  ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
   branch = "master"
   name = "github.com/palantir/godel"
-  packages = ["framework/artifactresolver","framework/builtintasks/installupdate/layout","framework/godel","framework/godellauncher","framework/pluginapi","framework/pluginapi/v2/pluginapi","framework/verifyorder","godelgetter","pkg/osarch"]
+  packages = [
+    "framework/artifactresolver",
+    "framework/builtintasks/installupdate/layout",
+    "framework/godel",
+    "framework/godellauncher",
+    "framework/pluginapi",
+    "framework/pluginapi/v2/pluginapi",
+    "framework/verifyorder",
+    "godelgetter",
+    "pkg/osarch"
+  ]
   revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
 
 [[projects]]
   branch = "master"
   name = "github.com/palantir/pkg"
-  packages = ["cobracli","matcher","specdir"]
-  revision = "b59de130c1302a3c591efcfb0fd575727f53d0d2"
+  packages = [
+    "cobracli",
+    "matcher",
+    "specdir"
+  ]
+  revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -40,8 +57,8 @@
 [[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
-  version = "v0.0.1"
+  revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
+  version = "v0.0.2"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -64,6 +81,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "89aa1c7b2d7ff6c7794367370533f7a1fa78bfe09e64397b2b019c6a0e298d04"
+  inputs-digest = "07dc6f63afa58f2c78ac07f45c29b2ec4de7b9c2453b931774ed8a3296950f91"
   solver-name = "gps-cdcl"
   solver-version = 1
