@@ -16,6 +16,7 @@ package cmd
 
 import (
 	"github.com/palantir/godel/framework/pluginapi"
+	"github.com/palantir/pkg/cobracli"
 	"github.com/spf13/cobra"
 
 	"github.com/palantir/godel-goland-plugin/goland"
@@ -25,7 +26,7 @@ var (
 	projectDirFlagVal string
 )
 
-var RootCmd = &cobra.Command{
+var rootCmd = &cobra.Command{
 	Use:   "goland-plugin",
 	Short: "Create GoLand project",
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -33,9 +34,13 @@ var RootCmd = &cobra.Command{
 	},
 }
 
+func Execute() int {
+	return cobracli.ExecuteWithDefaultParams(rootCmd)
+}
+
 func init() {
-	pluginapi.AddProjectDirPFlagPtr(RootCmd.PersistentFlags(), &projectDirFlagVal)
-	if err := RootCmd.MarkPersistentFlagRequired(pluginapi.ProjectDirFlagName); err != nil {
+	pluginapi.AddProjectDirPFlagPtr(rootCmd.PersistentFlags(), &projectDirFlagVal)
+	if err := rootCmd.MarkPersistentFlagRequired(pluginapi.ProjectDirFlagName); err != nil {
 		panic(err)
 	}
 }

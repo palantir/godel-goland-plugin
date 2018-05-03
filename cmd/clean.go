@@ -29,5 +29,5 @@ var cleanCmd = &cobra.Command{
 }
 
 func init() {
-	RootCmd.AddCommand(cleanCmd)
+	rootCmd.AddCommand(cleanCmd)
 }
