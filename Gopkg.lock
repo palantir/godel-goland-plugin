@@ -18,7 +18,7 @@
   name = "github.com/nmiyake/pkg"
   packages = [
     "dirs",
-    "errorstringer"
+    "errorstringer",
   ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
@@ -34,7 +34,7 @@
     "framework/pluginapi/v2/pluginapi",
     "framework/verifyorder",
     "godelgetter",
-    "pkg/osarch"
+    "pkg/osarch",
   ]
   revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
 
@@ -44,7 +44,7 @@
   packages = [
     "cobracli",
     "matcher",
-    "specdir"
+    "specdir",
   ]
   revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
