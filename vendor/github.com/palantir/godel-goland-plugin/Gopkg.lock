@@ -18,7 +18,7 @@
   name = "github.com/nmiyake/pkg"
   packages = [
     "dirs",
-    "errorstringer",
+    "errorstringer"
   ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
@@ -34,18 +34,9 @@
     "framework/pluginapi/v2/pluginapi",
     "framework/verifyorder",
     "godelgetter",
-    "pkg/osarch",
+    "pkg/osarch"
   ]
   revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
-
-[[projects]]
-  name = "github.com/palantir/godel-goland-plugin"
-  packages = [
-    "cmd",
-    "goland",
-  ]
-  revision = "5dc5259020555726da38b6252fa415ab382daa0d"
-  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -53,7 +44,7 @@
   packages = [
     "cobracli",
     "matcher",
-    "specdir",
+    "specdir"
   ]
   revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
@@ -90,6 +81,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "4fc4cf025243b004e56c7159c315ce846ac3a621e42efbd09efb22f702da099c"
+  inputs-digest = "07dc6f63afa58f2c78ac07f45c29b2ec4de7b9c2453b931774ed8a3296950f91"
   solver-name = "gps-cdcl"
   solver-version = 1
