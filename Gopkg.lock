@@ -2,28 +2,35 @@
 
 
 [[projects]]
+  digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
   name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
+  pruneopts = "UT"
   revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
   version = "v1.0"
 
 [[projects]]
+  digest = "1:e2d1d410fb367567c2b53ed9e2d719d3c1f0891397bb2fa49afd747cfbf1e8e4"
   name = "github.com/mattn/go-runewidth"
   packages = ["."]
+  pruneopts = "UT"
   revision = "9e777a8366cce605130a531d2cd6363d07ad7317"
   version = "v0.0.2"
 
 [[projects]]
   branch = "develop"
+  digest = "1:021adb5945a1ffc3203d58816805eee56385f97eba3b4f4740c9dacdc13b055d"
   name = "github.com/nmiyake/pkg"
   packages = [
     "dirs",
     "errorstringer",
   ]
+  pruneopts = "UT"
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
   branch = "master"
+  digest = "1:09ea832c6c85e797fe1689f0ff800e9bfce743200efd4ed95b5150522989dd36"
   name = "github.com/palantir/godel"
   packages = [
     "framework/artifactresolver",
@@ -36,51 +43,71 @@
     "godelgetter",
     "pkg/osarch",
   ]
+  pruneopts = "UT"
   revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
 
 [[projects]]
   branch = "master"
+  digest = "1:eb0a33c850f7ca264f4d965e658bb2a9f4f1896938f7621e51b20b7c272cc7a5"
   name = "github.com/palantir/pkg"
   packages = [
     "cobracli",
     "matcher",
     "specdir",
   ]
+  pruneopts = "UT"
   revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
 [[projects]]
+  digest = "1:40e195917a951a8bf867cd05de2a46aaf1806c50cf92eebf4c16f78cd196f747"
   name = "github.com/pkg/errors"
   packages = ["."]
+  pruneopts = "UT"
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
 
 [[projects]]
+  digest = "1:982714fa3eaafd4251f5ccf3d133b706ad742b86c195d594e1a86050a02f87a8"
   name = "github.com/spf13/cobra"
   packages = ["."]
+  pruneopts = "UT"
   revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
   version = "v0.0.2"
 
 [[projects]]
+  digest = "1:1b21a2b4058a779f290c7341cd93267492e0ecea6c8b54f64a4a5fd7ff131034"
   name = "github.com/spf13/pflag"
   packages = ["."]
+  pruneopts = "UT"
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
   version = "v1.0.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:47a347c704cb09f3b61480613208d7bf1dd15639b5b4fb5c0d1c9ba2f482e894"
   name = "golang.org/x/sys"
   packages = ["unix"]
+  pruneopts = "UT"
   revision = "91ee8cde435411ca3f1cd365e8f20131aed4d0a1"
 
 [[projects]]
+  digest = "1:c4b907986044810b1542df64faf968e8b1c235113f26b06f16a1c86e0d6a48f8"
   name = "gopkg.in/cheggaaa/pb.v1"
   packages = ["."]
+  pruneopts = "UT"
   revision = "72b964305fba1230d3d818711138195f22b9ceea"
   version = "v1.0.22"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "07dc6f63afa58f2c78ac07f45c29b2ec4de7b9c2453b931774ed8a3296950f91"
+  input-imports = [
+    "github.com/nmiyake/pkg/dirs",
+    "github.com/palantir/godel/framework/pluginapi",
+    "github.com/palantir/godel/framework/pluginapi/v2/pluginapi",
+    "github.com/palantir/pkg/cobracli",
+    "github.com/pkg/errors",
+    "github.com/spf13/cobra",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
