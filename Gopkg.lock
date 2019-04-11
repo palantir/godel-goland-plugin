@@ -47,6 +47,17 @@
   revision = "85235ee4112d52cba80bc57a53f62976ce936cc5"
 
 [[projects]]
+  digest = "1:82c9a47ca7e2dcdfce9d9aae509197dd1f68819e7f5d4f160cb3500084e2bb76"
+  name = "github.com/palantir/godel-goland-plugin"
+  packages = [
+    "cmd",
+    "goland",
+  ]
+  pruneopts = "UT"
+  revision = "5dc5259020555726da38b6252fa415ab382daa0d"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   digest = "1:eb0a33c850f7ca264f4d965e658bb2a9f4f1896938f7621e51b20b7c272cc7a5"
   name = "github.com/palantir/pkg"
@@ -103,6 +114,8 @@
   analyzer-version = 1
   input-imports = [
     "github.com/nmiyake/pkg/dirs",
+    "github.com/palantir/godel-goland-plugin/cmd",
+    "github.com/palantir/godel-goland-plugin/goland",
     "github.com/palantir/godel/framework/pluginapi",
     "github.com/palantir/godel/framework/pluginapi/v2/pluginapi",
     "github.com/palantir/pkg/cobracli",
