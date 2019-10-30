@@ -31,17 +31,16 @@ const (
 	defaultGoSDK             = "Go"
 	imlGolandTemplateContent = `<?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
+  <component name="Go" enabled="true" />
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="GOPATH &lt;{{.ProjectName}}&gt;" level="project" />
   </component>
 </module>
 `
 	iprGolandTemplateContent = `<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GOROOT" path="{{.GoRoot}}" />
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/{{.ProjectName}}.iml" filepath="$PROJECT_DIR$/{{.ProjectName}}.iml" />
@@ -49,7 +48,7 @@ const (
   </component>
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="format $FilePathRelativeToProjectRoot$" />
+      <option name="arguments" value="format runAll $FilePathRelativeToProjectRoot$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -62,6 +61,7 @@ const (
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="program" value="$PROJECT_DIR$/godelw" />
+      <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Changed Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$ProjectFileDir$" />
