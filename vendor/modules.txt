@@ -19,13 +19,13 @@ github.com/palantir/godel/v2/pkg/osarch
 github.com/palantir/pkg/cobracli
 github.com/palantir/pkg/matcher
 github.com/palantir/pkg/specdir
-# github.com/pkg/errors v0.8.0
+# github.com/pkg/errors v0.8.1
 github.com/pkg/errors
-# github.com/spf13/cobra v0.0.2
+# github.com/spf13/cobra v1.1.1
 github.com/spf13/cobra
-# github.com/spf13/pflag v1.0.0
+# github.com/spf13/pflag v1.0.5
 github.com/spf13/pflag
-# golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223
+# golang.org/x/sys v0.0.0-20190624142023-c5567b49c5d0
 golang.org/x/sys/unix
 # gopkg.in/cheggaaa/pb.v1 v1.0.22
 gopkg.in/cheggaaa/pb.v1
