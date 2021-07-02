@@ -10,5 +10,5 @@ require (
 	github.com/palantir/pkg/cobracli v1.0.1
 	github.com/pierrec/lz4 v2.3.0+incompatible // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/spf13/cobra v1.2.0
+	github.com/spf13/cobra v1.2.1
 )
