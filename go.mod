@@ -1,9 +1,8 @@
 module github.com/palantir/godel-goland-plugin
 
-go 1.13
+go 1.16
 
 require (
-	github.com/frankban/quicktest v1.5.0 // indirect
 	github.com/mattn/go-colorable v0.1.4 // indirect
 	github.com/nmiyake/pkg/dirs v1.1.0
 	github.com/palantir/godel/v2 v2.40.0
