@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
-	github.com/palantir/godel/v2 v2.41.0
+	github.com/palantir/godel/v2 v2.42.0
 	github.com/palantir/pkg/cobracli v1.0.1
 	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v1.2.1
@@ -24,6 +24,5 @@ require (
 	github.com/palantir/pkg/specdir v1.0.1 // indirect
 	github.com/pierrec/lz4 v2.3.0+incompatible // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/ulikunitz/xz v0.5.8 // indirect
 	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
 )
