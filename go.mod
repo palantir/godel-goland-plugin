@@ -1,6 +1,6 @@
 module github.com/palantir/godel-goland-plugin
 
-go 1.20
+go 1.21
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
