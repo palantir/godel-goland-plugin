@@ -26,7 +26,7 @@ github.com/nmiyake/pkg/dirs
 # github.com/nmiyake/pkg/errorstringer v1.1.0
 ## explicit; go 1.16
 github.com/nmiyake/pkg/errorstringer
-# github.com/palantir/godel/v2 v2.109.0
+# github.com/palantir/godel/v2 v2.110.0
 ## explicit; go 1.21
 github.com/palantir/godel/v2/framework/artifactresolver
 github.com/palantir/godel/v2/framework/builtintasks/installupdate/layout
@@ -54,7 +54,7 @@ github.com/palantir/pkg/specdir
 # github.com/pkg/errors v0.8.1
 ## explicit
 github.com/pkg/errors
-# github.com/spf13/cobra v1.8.0
+# github.com/spf13/cobra v1.8.1
 ## explicit; go 1.15
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.5
