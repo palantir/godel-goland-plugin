@@ -26,7 +26,7 @@ github.com/nmiyake/pkg/dirs
 # github.com/nmiyake/pkg/errorstringer v1.1.0
 ## explicit; go 1.16
 github.com/nmiyake/pkg/errorstringer
-# github.com/palantir/godel/v2 v2.115.0
+# github.com/palantir/godel/v2 v2.119.0
 ## explicit; go 1.21.0
 github.com/palantir/godel/v2/framework/artifactresolver
 github.com/palantir/godel/v2/framework/builtintasks/installupdate/layout
@@ -49,8 +49,6 @@ github.com/palantir/pkg/matcher
 # github.com/palantir/pkg/specdir v1.2.0
 ## explicit; go 1.19
 github.com/palantir/pkg/specdir
-# github.com/pierrec/lz4 v2.3.0+incompatible
-## explicit
 # github.com/pkg/errors v0.8.1
 ## explicit
 github.com/pkg/errors
