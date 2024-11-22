@@ -1,0 +1,8 @@
+type: feature
+feature:
+  description: |-
+    Adds the witchcraft-logging Idea plugin
+
+    The witchcraft-logging Idea plugin adds the ability to parse and render witchcraft-api structured logs from the IDE console output. If the plugin is not installed a prompt will be displayed for a 1-click install.
+  links:
+  - https://github.com/palantir/godel-goland-plugin/pull/87
