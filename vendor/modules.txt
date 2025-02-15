@@ -52,7 +52,7 @@ github.com/palantir/pkg/specdir
 # github.com/pkg/errors v0.8.1
 ## explicit
 github.com/pkg/errors
-# github.com/spf13/cobra v1.8.1
+# github.com/spf13/cobra v1.9.0
 ## explicit; go 1.15
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.6
