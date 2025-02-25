@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"path"
 	"path/filepath"
 	"text/template"
@@ -68,8 +69,26 @@ const (
       <envs />
     </TaskOptions>
   </component>
+{{- if .UsesModules}}
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+{{- if .ModuleEnvVars}}
+    <environment>
+      <map>
+        {{- range $k, $v := .GoEnv}}
+        <entry key="{{$k}}" value="{{$v}}" />
+        {{- end}}
+      </map>
+    </environment>
+{{- end}}
+  </component>
+{{- end}}
 </project>
 `
+)
+
+var (
+	goEnvFlags = []string{"GOFLAGS", "GONOPROXY", "GOPRIVATE", "GOPROXY"}
 )
 
 func CreateProjectFiles(rootDir string) error {
@@ -86,11 +105,24 @@ func createIDEAFiles(rootDir string, imlContent, iprContent string) error {
 	if err != nil {
 		return errors.Wrapf(err, "failed to determine GOROOT")
 	}
+	modulePath, err := getGoModulePath(rootDir)
+	if err != nil {
+		return errors.Wrapf(err, "failed to determine if project uses go modules")
+	}
+	moduleEnvVars := make(map[string]string)
+	for _, goFlag := range goEnvFlags {
+		if val := os.Getenv(goFlag); val != "" {
+			moduleEnvVars[goFlag] = val
+		}
+	}
 	buffer := bytes.Buffer{}
-	templateValues := map[string]string{
-		"GoSDK":       defaultGoSDK,
-		"GoRoot":      goRoot,
-		"ProjectName": projectName,
+	templateValues := map[string]interface{}{
+		"GoSDK":         defaultGoSDK,
+		"GoRoot":        goRoot,
+		"ProjectName":   projectName,
+		"UsesModules":   modulePath,
+		"ModuleEnvVars": len(moduleEnvVars) > 0,
+		"GoEnv":         moduleEnvVars,
 	}
 	imlTemplate := template.Must(template.New("iml").Parse(imlContent))
 	if err := imlTemplate.Execute(&buffer, templateValues); err != nil {
@@ -140,4 +172,11 @@ func projectNameFromDir(dir string) (string, error) {
 		dir = path.Join(wd, dir)
 	}
 	return path.Base(dir), nil
+}
+
+func getGoModulePath(dir string) (string, error) {
+	cmd := exec.Command("go", "list", "-m", "-f", "{{.GoMod}}")
+	cmd.Dir = dir
+	out, err := cmd.CombinedOutput()
+	return string(out), err
 }
