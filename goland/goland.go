@@ -68,6 +68,9 @@ const (
       <envs />
     </TaskOptions>
   </component>
+  <component name="ExternalDependencies">
+    <plugin id="com.palantir.witchcraft.api.logging.idea" min-version="1.6.0"/>
+  </component>
 </project>
 `
 )
