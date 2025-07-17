@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
-	github.com/palantir/godel/v2 v2.133.0
+	github.com/palantir/godel/v2 v2.134.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v1.9.1
@@ -22,6 +22,6 @@ require (
 	github.com/palantir/pkg v1.1.0 // indirect
 	github.com/palantir/pkg/matcher v1.2.0 // indirect
 	github.com/palantir/pkg/specdir v1.2.0 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
-	golang.org/x/sys v0.33.0 // indirect
+	github.com/spf13/pflag v1.0.7 // indirect
+	golang.org/x/sys v0.34.0 // indirect
 )
