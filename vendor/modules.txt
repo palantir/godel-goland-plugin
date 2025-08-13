@@ -49,7 +49,7 @@ github.com/palantir/pkg/matcher
 # github.com/palantir/pkg/specdir v1.2.0
 ## explicit; go 1.19
 github.com/palantir/pkg/specdir
-# github.com/pkg/errors v0.8.1
+# github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
 # github.com/spf13/cobra v1.9.1
