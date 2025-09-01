@@ -23,6 +23,6 @@ require (
 	github.com/palantir/pkg/matcher v1.2.0 // indirect
 	github.com/palantir/pkg/specdir v1.2.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
-	github.com/spf13/pflag v1.0.7 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	golang.org/x/sys v0.35.0 // indirect
 )
