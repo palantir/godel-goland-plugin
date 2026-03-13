@@ -17,7 +17,6 @@ package goland
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
@@ -98,7 +97,7 @@ func createIDEAFiles(rootDir string, imlContent, iprContent string) error {
 	}
 
 	imlFilePath := path.Join(rootDir, projectName+".iml")
-	if err := ioutil.WriteFile(imlFilePath, buffer.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(imlFilePath, buffer.Bytes(), 0644); err != nil {
 		return errors.Wrapf(err, "failed to write .iml file to %s", imlFilePath)
 	}
 
@@ -109,7 +108,7 @@ func createIDEAFiles(rootDir string, imlContent, iprContent string) error {
 	}
 
 	iprFilePath := path.Join(rootDir, projectName+".ipr")
-	if err := ioutil.WriteFile(iprFilePath, buffer.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(iprFilePath, buffer.Bytes(), 0644); err != nil {
 		return errors.Wrapf(err, "failed to write .ipr file to %s", iprFilePath)
 	}
 
