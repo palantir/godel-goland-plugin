@@ -2,6 +2,8 @@ module github.com/palantir/godel-goland-plugin
 
 go 1.27.0
 
+toolchain go1.27.1
+
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
 	github.com/palantir/godel/v2 v2.178.0
