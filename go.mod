@@ -27,6 +27,6 @@ require (
 	github.com/palantir/pkg/specdir v1.4.0 // indirect
 	github.com/palantir/witchcraft-go-error v1.51.0 // indirect
 	github.com/palantir/witchcraft-go-params v1.50.0 // indirect
-	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/spf13/pflag v1.1.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 )
